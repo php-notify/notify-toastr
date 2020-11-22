@@ -1,9 +1,9 @@
 <?php
 
-namespace Yoeunes\Notify\Toastr\Tests\Factory;
+namespace Notify\Toastr\Tests\Factory;
 
 use PHPUnit\Framework\TestCase;
-use Yoeunes\Notify\Toastr\Producer\ToastrProducer;
+use Notify\Toastr\Producer\ToastrProducer;
 
 class ToastrFactoryTest extends TestCase
 {

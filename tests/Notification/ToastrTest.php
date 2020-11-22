@@ -1,9 +1,9 @@
 <?php
 
-namespace Yoeunes\Notify\Toastr\Tests\Notification;
+namespace Notify\Toastr\Tests\Notification;
 
 use PHPUnit\Framework\TestCase;
-use Yoeunes\Notify\Toastr\Notification\Toastr;
+use Notify\Toastr\Notification\Toastr;
 
 class ToastrTest extends TestCase
 {

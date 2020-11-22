@@ -1,12 +1,12 @@
 <?php
 
-namespace Yoeunes\Notify\Toastr\Renderer;
+namespace Notify\Toastr\Renderer;
 
-use Yoeunes\Notify\Envelope\Envelope;
-use Yoeunes\Notify\Renderer\HasGlobalOptionsInterface;
-use Yoeunes\Notify\Renderer\HasScriptsInterface;
-use Yoeunes\Notify\Renderer\HasStylesInterface;
-use Yoeunes\Notify\Renderer\RendererInterface;
+use Notify\Envelope\Envelope;
+use Notify\Renderer\HasGlobalOptionsInterface;
+use Notify\Renderer\HasScriptsInterface;
+use Notify\Renderer\HasStylesInterface;
+use Notify\Renderer\RendererInterface;
 
 class ToastrRenderer implements RendererInterface, HasScriptsInterface, HasStylesInterface, HasGlobalOptionsInterface
 {

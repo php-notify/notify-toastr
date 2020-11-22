@@ -1,8 +1,8 @@
 <?php
 
-namespace Yoeunes\Notify\Toastr\Producer;
+namespace Notify\Toastr\Producer;
 
-use Yoeunes\Notify\Producer\AbstractProducer;
+use Notify\Producer\AbstractProducer;
 
 final class ToastrProducer extends AbstractProducer
 {
