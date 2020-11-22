@@ -16,8 +16,8 @@ class ToastrRenderer implements RendererInterface, HasScriptsInterface, HasStyle
 
     public function __construct(array $scripts = array(), array $styles = array(), array $globalOptions = array())
     {
-        $this->scripts = $scripts;
-        $this->styles = $styles;
+        $this->scripts       = $scripts;
+        $this->styles        = $styles;
         $this->globalOptions = $globalOptions;
     }
 
@@ -29,7 +29,8 @@ class ToastrRenderer implements RendererInterface, HasScriptsInterface, HasStyle
         $context = $envelope->getContext();
         $options = isset($context['options']) ? $context['options'] : array();
 
-        return sprintf("toastr.%s('%s', '%s', %s);",
+        return sprintf(
+            "toastr.%s('%s', '%s', %s);",
             $envelope->getType(),
             $envelope->getMessage(),
             $envelope->getTitle(),
