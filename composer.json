@@ -24,8 +24,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": ">=5.3",
-        "ext-json": "*",
+        "php": ">=5.3.3",
         "php-notify/notify": "dev-master"
     },
     "require-dev": {
