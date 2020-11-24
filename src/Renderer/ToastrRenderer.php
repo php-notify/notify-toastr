@@ -2,6 +2,7 @@
 
 namespace Notify\Toastr\Renderer;
 
+use Notify\Config\ConfigInterface;
 use Notify\Envelope\Envelope;
 use Notify\Renderer\HasGlobalOptionsInterface;
 use Notify\Renderer\HasScriptsInterface;
@@ -10,15 +11,32 @@ use Notify\Renderer\RendererInterface;
 
 class ToastrRenderer implements RendererInterface, HasScriptsInterface, HasStylesInterface, HasGlobalOptionsInterface
 {
-    private $scripts;
-    private $styles;
-    private $globalOptions;
+    /**
+     * @var \Notify\Config\ConfigInterface
+     */
+    private $config;
 
-    public function __construct(array $scripts = array(), array $styles = array(), array $globalOptions = array())
+    /**
+     * @var array
+     */
+    private $scripts;
+
+    /**
+     * @var array
+     */
+    private $styles;
+
+    /**
+     * @var array
+     */
+    private $options;
+
+    public function __construct(ConfigInterface $config)
     {
-        $this->scripts       = $scripts;
-        $this->styles        = $styles;
-        $this->globalOptions = $globalOptions;
+        $this->config  = $config;
+        $this->scripts = $config->get('adapters.toastr.scripts', array());
+        $this->styles  = $config->get('adapters.toastr.styles', array());
+        $this->options = $config->get('adapters.toastr.options', array());
     }
 
     /**
@@ -56,6 +74,6 @@ class ToastrRenderer implements RendererInterface, HasScriptsInterface, HasStyle
 
     public function renderOptions()
     {
-        return sprintf('toastr.options = %s;', json_encode($this->globalOptions));
+        return sprintf('toastr.options = %s;', json_encode($this->options));
     }
 }
