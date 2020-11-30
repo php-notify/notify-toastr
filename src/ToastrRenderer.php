@@ -1,15 +1,15 @@
 <?php
 
-namespace Notify\Toastr\Renderer;
+namespace Notify\Toastr;
 
 use Notify\Config\ConfigInterface;
 use Notify\Envelope\Envelope;
-use Notify\Renderer\HasGlobalOptionsInterface;
+use Notify\Renderer\HasOptionsInterface;
 use Notify\Renderer\HasScriptsInterface;
 use Notify\Renderer\HasStylesInterface;
 use Notify\Renderer\RendererInterface;
 
-class ToastrRenderer implements RendererInterface, HasScriptsInterface, HasStylesInterface, HasGlobalOptionsInterface
+final class ToastrRenderer implements RendererInterface, HasScriptsInterface, HasStylesInterface, HasOptionsInterface
 {
     /**
      * @var \Notify\Config\ConfigInterface
@@ -44,14 +44,17 @@ class ToastrRenderer implements RendererInterface, HasScriptsInterface, HasStyle
      */
     public function render(Envelope $envelope)
     {
-        $context = $envelope->getContext();
-        $options = isset($context['options']) ? $context['options'] : array();
+        /**
+         * @var \Notify\Toastr\Toastr $notification
+         */
+        $notification = $envelope->getNotification();
+        $options = $notification->getOptions() ?: array();
 
         return sprintf(
             "toastr.%s('%s', '%s', %s);",
-            $envelope->getType(),
-            $envelope->getMessage(),
-            $envelope->getTitle(),
+            $notification->getType(),
+            $notification->getMessage(),
+            $notification->getTitle(),
             json_encode($options)
         );
     }

@@ -11,7 +11,9 @@
         "messages",
         "alerts",
         "pnotify",
-        "toastr "
+        "notyf",
+        "toastr",
+        "sweet alert"
     ],
     "homepage": "https://github.com/php-notify/notify-toastr",
     "authors": [
@@ -25,7 +27,8 @@
     "license": "MIT",
     "require": {
         "php": ">=5.3",
-        "php-notify/notify": "^1.0"
+        "ext-json": "*",
+        "php-notify/notify": "2.x-dev"
     },
     "require-dev": {
         "phpunit/phpunit": "4.8.36"
